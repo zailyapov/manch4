@@ -1,25 +1,22 @@
-import React from "react";
+import {useState} from "react";
 
-function Welcome(props){
-  return <h1> Привет, {props.name}</h1>
+function App() {
+    const [open, setOpen] = useState(false)
+
+    const handleClick = () => {
+        setOpen(!open)
+    }
+
+  return (
+      <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
+          <div>
+              <button onClick={handleClick} style={open ? {display: 'block'} : {display: 'none'}} className="blue">Blue</button>
+          </div>
+          <div>
+              <button onClick={handleClick} style={!open ? {display: 'block'} : {display: 'none'}} className="green" >Green</button>
+          </div>
+      </div>
+  );
 }
-
-function App(){
-  return(
-    <div>
-      <Welcome name = 'Sara'/>
-      <Welcome name = ' Argen'/> 
-      <Welcome name = 'Bayel'/>
-    </div>
-  )
-} 
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Hello World</h1>
-//     </div>
-//   );
-// }
 
 export default App;
